@@ -11,7 +11,7 @@ class Ship extends Model
     public $incrementing = false;
 
     protected $fillable = [
-        'name', 'image',
+        'serial_number', 'name', 'image',
     ];
 
     public function craws()

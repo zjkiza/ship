@@ -10,6 +10,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public const ADMIN = 'admin';
+
+    public const ROLE = ['worker', 'admin'];
+
     public $table = 'users';
 
     /**
