@@ -19,7 +19,7 @@ class CreateCrawsTable extends Migration
             $table->string('sur_name');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('rank_id');
-            $table->string('ship_id', 8)->unique();
+            $table->string('ship_id', 8);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')
