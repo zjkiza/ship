@@ -18,3 +18,7 @@ Route::namespace('Admin')
         Route::get('/user/create', 'AdminController@create')->name('admin.user.create');
         Route::post('/user/store', 'AdminController@store')->name('admin.user.store');
 });
+
+Route::get('/notification', 'CrawController@index')
+    ->middleware(['auth'])
+    ->name('notification.read');

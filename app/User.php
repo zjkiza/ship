@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Craw;
+use App\Notifications\FirstLogin;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -45,5 +46,10 @@ class User extends Authenticatable
     public function craw()
     {
         return $this->hasOne(Craw::class, 'user_id');
+    }
+
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify(new FirstLogin($token));
     }
 }
