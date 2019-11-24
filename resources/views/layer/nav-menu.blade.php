@@ -11,13 +11,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.notification')  }}">Notification</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
         </ul>
-        <div class="float-right mr-2">
-            Login
-        </div>
         <form class="form-inline my-2 my-lg-0" action="{{ route('logout') }}" method="POST">
             @csrf
             <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>

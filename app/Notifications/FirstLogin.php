@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -10,11 +11,14 @@ class FirstLogin extends Notification
 {
     use Queueable;
 
-    public $token;
+    /**
+     * @var User
+     */
+    private $user;
 
-    public function __construct($token)
+    public function __construct(User $user)
     {
-        $this->token = $token;
+        $this->user = $user;
     }
 
     /**
@@ -39,12 +43,10 @@ class FirstLogin extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage())
-                    ->line('The introduction to the first login.')
-                    ->action('Notification Action', url(config('app.url').route('password.reset',
-                            ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()],
-                            false)
-                    ))
-                    ->line('Thank you for using our application!');
+            ->subject('Welcome')
+            ->line('Dear '.$this->user->email.', we are happy to see you here.')
+            ->action('Login action', url(route('login')))
+            ->line('Thank you for using our application!');
     }
 
     /**
