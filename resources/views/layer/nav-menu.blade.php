@@ -9,7 +9,7 @@
                 <a class="nav-link" href="{{ route('admin.user.create')  }}">Add user</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="{{ route('admin.notification')  }}">Notification</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -18,9 +18,9 @@
         <div class="float-right mr-2">
             Login
         </div>
-        <form class="form-inline my-2 my-lg-0" method="get" action="">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0" action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Logout</button>
         </form>
     </div>
 </nav>

@@ -21,6 +21,6 @@ class AccessAdmin
             return $next($request);
         }
 
-        return redirect()->route('index-request');
+        return redirect()->route('notification.not.read');
     }
 }

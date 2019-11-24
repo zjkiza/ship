@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         $this->notify(new FirstLogin($token));
     }
+
+    public function isAdmin(): bool
+    {
+        return auth()->user()->role === $this::ADMIN;
+    }
 }

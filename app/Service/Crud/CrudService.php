@@ -16,15 +16,29 @@ class CrudService
      * @var UserCrudService
      */
     private $userCrudService;
+    /**
+     * @var NotificationCrudService
+     */
+    private $notificationCrudService;
 
     public function __construct(
         RankCrudService $rankCrudService,
         ShipCrudService $shipCrudService,
-        UserCrudService $userCrudService
+        UserCrudService $userCrudService,
+        NotificationCrudService $notificationCrudService
     ) {
         $this->rankCrudService = $rankCrudService;
         $this->shipCrudService = $shipCrudService;
         $this->userCrudService = $userCrudService;
+        $this->notificationCrudService = $notificationCrudService;
+    }
+
+    /**
+     * @return NotificationCrudService
+     */
+    public function getNotificationCrudService(): NotificationCrudService
+    {
+        return $this->notificationCrudService;
     }
 
     public function getUserCrudService(): UserCrudService

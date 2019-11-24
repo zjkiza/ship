@@ -13,6 +13,8 @@
 </head>
 <body>
 
+@include('layer.craw-menu')
+
 <div class="container">
 
     @yield('content')
