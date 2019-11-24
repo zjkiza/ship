@@ -36,16 +36,20 @@ class NotificationCrudService
     public function store(array $data): Model
     {
         $notification = $this->notificationCrudRepository->store($data);
-        $this->sendNotification($notification);
+
+        dispatch(new \App\Jobs\SendNewNotifications(
+            $notification->rank_id,
+            $notification->ship_id
+        ));
 
         return $notification;
     }
 
-    public function sendNotification(Model $model)
+    public function sendNotification(int $rankId, string $shipId)
     {
         $users = $this->userSelectRepository->getUsersForNotification(
-            $model->rank_id,
-            $model->ship_id
+            $rankId,
+            $shipId
         );
 
         /** @var User $user */
