@@ -30,7 +30,7 @@ class SendNewNotifications implements ShouldQueue
         $this->shipId = $shipId;
     }
 
-    public function handle(NotificationCrudService $service)
+    public function handle(NotificationCrudService $service): void
     {
         $service->sendNotification($this->rankId, $this->shipId);
     }

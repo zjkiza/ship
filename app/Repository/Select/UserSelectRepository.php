@@ -16,7 +16,7 @@ class UserSelectRepository
             ->get();
     }
 
-    public function getUsersForNotification(int $rankId, string $shipId)
+    public function getUsersForNotification(int $rankId, string $shipId): Collection
     {
         return User::join('craws', 'craws.user_id', '=', 'users.id')
             ->where('rank_id', $rankId)

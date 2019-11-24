@@ -21,7 +21,7 @@ class CreateNotificationRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'message' => ['required', 'string', 'max:2000'],

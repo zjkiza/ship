@@ -45,7 +45,7 @@ class NotificationCrudService
         return $notification;
     }
 
-    public function sendNotification(int $rankId, string $shipId)
+    public function sendNotification(int $rankId, string $shipId): void
     {
         $users = $this->userSelectRepository->getUsersForNotification(
             $rankId,
