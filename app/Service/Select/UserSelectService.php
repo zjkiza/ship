@@ -18,4 +18,9 @@ class UserSelectService
     {
         return $this->userSelectRepository->getUsersIndex();
     }
+
+    public function getUsersForNotification(int $rankId, string $shipId): Collection
+    {
+        return $this->userSelectRepository->getUsersForNotification($rankId, $shipId);
+    }
 }

@@ -19,7 +19,6 @@ Route::namespace('Admin')
             ->name('admin.notification.create');
         Route::post('/notification/store', 'NotificationController@store')
             ->name('admin.notification.store');
-
     });
 
 Route::middleware(['auth'])

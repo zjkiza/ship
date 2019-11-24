@@ -15,4 +15,13 @@ class UserSelectRepository
             ->select('users.*', 'craws.*', 'ships.name as ship_name', 'ranks.name as rank_name')
             ->get();
     }
+
+    public function getUsersForNotification(int $rankId, string $shipId)
+    {
+        return User::join('craws', 'craws.user_id', '=', 'users.id')
+            ->where('rank_id', $rankId)
+            ->where('ship_id', $shipId)
+            ->select('users.email')
+            ->get();
+    }
 }
