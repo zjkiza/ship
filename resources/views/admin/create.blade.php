@@ -59,7 +59,7 @@
                     <div class="form-group row">
                         <label for="sur_name" class="col-sm-3 col-form-label text-md-right">Sur name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control {{ $errors->has('sur_name') ? 'sur_name-danger' : '' }}"
+                            <input type="text" class="form-control {{ $errors->has('sur_name') ? 'alert-danger' : '' }}"
                                    id="sur_name" name="sur_name" value="{{ old('sur_name') }}">
                         </div>
                     </div>

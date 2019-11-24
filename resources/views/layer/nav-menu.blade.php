@@ -9,7 +9,10 @@
                 <a class="nav-link" href="{{ route('admin.user.create')  }}">Add user</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.notification')  }}">Notification</a>
+                <a class="nav-link" href="{{ route('admin.notification')  }}">Notifications list</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.notification.create')  }}">Add Notification</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="{{ route('logout') }}" method="POST">

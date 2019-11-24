@@ -4,6 +4,7 @@ namespace App\Service\Crud;
 
 use App\Repository\Crud\NotificationCrudRepository;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class NotificationCrudService
 {
@@ -20,5 +21,10 @@ class NotificationCrudService
     public function getAll(): Collection
     {
         return $this->notificationCrudRepository->getAll();
+    }
+
+    public function store(array $data): Model
+    {
+        return $this->notificationCrudRepository->store($data);
     }
 }

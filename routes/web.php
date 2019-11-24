@@ -15,6 +15,11 @@ Route::namespace('Admin')
         Route::post('/user/store', 'AdminController@store')->name('admin.user.store');
 
         Route::get('/notification', 'NotificationController@index')->name('admin.notification');
+        Route::get('/notification/create', 'NotificationController@crete')
+            ->name('admin.notification.create');
+        Route::post('/notification/store', 'NotificationController@store')
+            ->name('admin.notification.store');
+
     });
 
 Route::middleware(['auth'])
