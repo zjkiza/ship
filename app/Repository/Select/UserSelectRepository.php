@@ -9,7 +9,7 @@ class UserSelectRepository
 {
     public function getUsersIndex(): Collection
     {
-        return User::join('craws', 'craws.id', '=', 'users.id')
+        return User::join('craws', 'craws.user_id', '=', 'users.id')
             ->join('ships', 'ships.serial_number', '=', 'craws.ship_id')
             ->join('ranks', 'ranks.id', '=', 'craws.rank_id')
             ->select('users.*', 'craws.*', 'ships.name as ship_name', 'ranks.name as rank_name')
