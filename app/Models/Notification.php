@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \App\Models\Ship                $ship
- * @property \App\Models\Rank                $user
+ * @property \App\Models\Rank                $rank
  *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Notification newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Notification newQuery()
@@ -35,13 +35,13 @@ class Notification extends Model
         'message', 'rank_id', 'ship_id',
     ];
 
-    public function user()
+    public function rank()
     {
         return $this->belongsTo(Rank::class, 'rank_id', 'id');
     }
 
     public function ship()
     {
-        return $this->belongsTo(Ship::class, 'ship_id', 'id');
+        return $this->belongsTo(Ship::class, 'ship_id', 'serial_number');
     }
 }
