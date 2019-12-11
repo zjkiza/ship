@@ -14,7 +14,7 @@ class CreateShipsTable extends Migration
     public function up()
     {
         Schema::create('ships', function (Blueprint $table) {
-            $table->string('serial_number', 8)->unique();
+            $table->string('serial_number', 60)->unique();
             $table->string('name');
             $table->string('image');
             $table->timestamps();
