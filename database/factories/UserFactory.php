@@ -23,7 +23,7 @@ $factory->define(User::class, static function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => bcrypt('password'),
         'remember_token' => Str::random(10),
-        'role' => $faker->randomElement(User::ROLE),
+        'role' => User::ROLE[0],
     ];
 });
 

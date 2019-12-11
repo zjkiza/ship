@@ -11,7 +11,7 @@
             <tr>
 
                 <th scope="col">Email</th>
-                <th scope="col">Name</th>
+                <th scope="col">Role</th>
                 <th scope="col">Sur name</th>
                 <th scope="col">Rank</th>
                 <th scope="col">Ship</th>
