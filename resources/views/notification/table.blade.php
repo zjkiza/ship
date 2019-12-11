@@ -1,7 +1,4 @@
 <div class="row">
-    <h1>Notification</h1>
-</div>
-<div class="row">
     <table class="table table-striped table-bordered users-table">
         <thead>
         <tr>

@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="row">
-        <h1>Notification</h1>
+        <h1>Not read notifications</h1>
     </div>
     <div class="row">
         <table class="table table-striped table-bordered users-table">
