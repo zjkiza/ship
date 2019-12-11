@@ -5,6 +5,8 @@ use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
+    const ADMIN_CREDENTIALS = ['admin@gmail.com', 'admin'];
+
     /**
      * Run the database seeds.
      */
@@ -12,8 +14,8 @@ class UsersTableSeeder extends Seeder
     {
         $user = User::create([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('admin'),
+            'email' => static::ADMIN_CREDENTIALS[0],
+            'password' => bcrypt(static::ADMIN_CREDENTIALS[1]),
             'role' => User::ADMIN,
         ]);
 
