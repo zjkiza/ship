@@ -11,7 +11,7 @@ use App\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class NotificationTest extends TestCase
 {
     use DatabaseTransactions;
 
