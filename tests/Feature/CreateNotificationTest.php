@@ -27,11 +27,7 @@ class CreateNotificationTest extends TestCase
     /** @test */
     public function guest_may_not_create_notification(): void
     {
-        $notification = factory(Notification::class)->make();
-
-        $this->post(
-            route('admin.notification.store'),
-            $notification->toArray())
+        $this->post(route('admin.notification.store'))
             ->assertRedirect(route('login'));
     }
 
