@@ -26,7 +26,7 @@ class CreateNotificationRequest extends FormRequest
         return [
             'message' => ['required', 'string', 'max:2000'],
             'rank_id' => ['required', 'integer'],
-            'ship_id' => ['required', 'string', 'max:8'],
+            'ship_id' => ['required', 'string', 'max:60'],
         ];
     }
 }
