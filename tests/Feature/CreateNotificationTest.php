@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Notification;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\TestResponse;
 use Tests\TestCase;
 
 class CreateNotificationTest extends TestCase
@@ -24,6 +25,43 @@ class CreateNotificationTest extends TestCase
 
         $this->get($response->headers->get('Location'))
             ->assertSee($notification->message);
+    }
+
+    /** @test */
+    public function a_notification_required_a_message(): void
+    {
+        $this->publishNotification(['message' => null])
+            ->assertSessionHasErrors('message');
+    }
+
+    /** @test */
+    public function a_notification_required_a_rank_id(): void
+    {
+        $this->publishNotification(['rank_id' => null])
+            ->assertSessionHasErrors('rank_id');
+
+        $this->publishNotification(['rank_id' => 999999])
+            ->assertSessionHasErrors('rank_id');
+    }
+
+    /** @test */
+    public function a_notification_required_a_ship_id(): void
+    {
+        $this->publishNotification(['ship_id' => null])
+            ->assertSessionHasErrors('ship_id');
+
+        $this->publishNotification(['ship_id' => 'abcd'])
+            ->assertSessionHasErrors('ship_id');
+    }
+
+    public function publishNotification(array $attribute): TestResponse
+    {
+        $this->singIn();
+
+        $notification = factory(Notification::class)->make($attribute);
+
+        return $this
+            ->post(route('admin.notification.store'), $notification->toArray());
     }
 
     /** @test */
