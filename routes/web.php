@@ -25,4 +25,5 @@ Route::middleware(['auth'])
     ->group(static function () {
         Route::get('/notification', 'NotificationController@notRead')->name('notification.not.read');
         Route::get('/notification/read', 'NotificationController@read')->name('notification.read');
+        Route::post('/read', 'ReadController@checkRead')->name('read.create');
     });
