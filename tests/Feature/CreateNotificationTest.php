@@ -17,10 +17,12 @@ class CreateNotificationTest extends TestCase
 
         $notification = factory(Notification::class)->make();
 
-        $this->post(route('admin.notification.store'),
-            $notification->toArray());
+        $response = $this->post(
+            route('admin.notification.store'),
+            $notification->toArray()
+        );
 
-        $this->get(route('admin.notification'))
+        $this->get($response->headers->get('Location'))
             ->assertSee($notification->message);
     }
 

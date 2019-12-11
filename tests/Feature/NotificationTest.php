@@ -15,6 +15,12 @@ class NotificationTest extends TestCase
 {
     use DatabaseTransactions;
 
+    private $user;
+    private $ship;
+    private $rank;
+    private $crew;
+    private $notification;
+
     public function setUp(): void
     {
         parent::setUp();
@@ -32,7 +38,7 @@ class NotificationTest extends TestCase
             'ship_id' => $this->ship->serial_number,
         ]);
 
-        $this->be($this->user);
+        $this->singIn($this->user);
     }
 
     /** @test */

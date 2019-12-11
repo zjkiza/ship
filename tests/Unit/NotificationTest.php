@@ -12,6 +12,8 @@ class NotificationTest extends TestCase
 {
     use DatabaseTransactions;
 
+    private $notification;
+
     public function setUp(): void
     {
         parent::setUp();
