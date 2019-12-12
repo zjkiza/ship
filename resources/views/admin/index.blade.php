@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <h1>Admin</h1>
+        <h1>All users</h1>
     </div>
     <div class="row">
         <table class="table table-striped table-bordered users-table">

@@ -25,7 +25,7 @@ class NotificationController extends Controller
                 auth()->user()->craw->id
             );
 
-        return view('notification.index', [
+        return view('notification.not-read', [
             'notifications' => $notifications,
         ]);
     }
@@ -39,7 +39,7 @@ class NotificationController extends Controller
                 auth()->user()->craw->id
             );
 
-        return view('notification.index', [
+        return view('notification.read', [
             'notifications' => $notifications,
         ]);
     }
