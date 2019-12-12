@@ -47,6 +47,10 @@ class NotificationTest extends TestCase
         $this->get(route('notification.not.read'))
             ->assertStatus(200)
             ->assertSee($this->notification->message);
+
+        $this->get(route('notification.read'))
+            ->assertStatus(200)
+            ->assertDontSee($this->notification->message);
     }
 
     /** @test */
@@ -60,5 +64,9 @@ class NotificationTest extends TestCase
         $this->get(route('notification.read'))
             ->assertStatus(200)
             ->assertSee($this->notification->message);
+
+        $this->get(route('notification.not.read'))
+            ->assertStatus(200)
+            ->assertDontSee($this->notification->message);
     }
 }
