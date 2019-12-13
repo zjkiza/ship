@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \App\User                       $user
+ * @property Ship                            $ship
+ * @property Rank                            $rank
  *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Craw newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Craw newQuery()
@@ -42,5 +44,15 @@ class Craw extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function rank()
+    {
+        return $this->belongsTo(Rank::class, 'rank_id', 'id');
+    }
+
+    public function ship()
+    {
+        return $this->belongsTo(Ship::class, 'ship_id', 'serial_number');
     }
 }

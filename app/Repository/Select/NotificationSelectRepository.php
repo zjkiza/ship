@@ -10,7 +10,7 @@ class NotificationSelectRepository
     public function getRead(int $rankId, string $shipId, int $crawId): Collection
     {
         return Notification::join('craws', 'craws.rank_id', '=', 'notifications.rank_id')
-            ->join('reads', function ($join) {
+            ->join('reads', static function ($join) {
                 $join->on('reads.craw_id', '=', 'craws.id')
                     ->on('reads.notification_id', '=', 'notifications.id');
             })
@@ -23,7 +23,7 @@ class NotificationSelectRepository
 
     public function getNotRead(int $rankId, string $shipId, int $crawId): Collection
     {
-        return Notification::join('craws', function ($join) {
+        return Notification::join('craws', static function ($join) {
             $join->on('craws.rank_id', '=', 'notifications.rank_id')
                     ->on('craws.ship_id', '=', 'notifications.ship_id');
         })
