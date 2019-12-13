@@ -44,4 +44,9 @@ class Notification extends Model
     {
         return $this->belongsTo(Ship::class, 'ship_id', 'serial_number');
     }
+
+    public function reads()
+    {
+        return $this->hasMany(Read::class, 'notification_id', 'id');
+    }
 }

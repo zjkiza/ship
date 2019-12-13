@@ -61,6 +61,8 @@ class NotificationTest extends TestCase
             'notification_id' => $this->notification->id,
         ]);
 
+        $this->assertCount(1, $this->notification->reads);
+
         $this->get(route('notification.read'))
             ->assertStatus(200)
             ->assertSee($this->notification->message);
