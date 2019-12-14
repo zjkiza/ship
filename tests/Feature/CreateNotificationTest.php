@@ -77,4 +77,34 @@ class CreateNotificationTest extends TestCase
         $this->get(route('admin.notification.create'))
             ->assertRedirect(route('login'));
     }
+
+    /** @test */
+    public function a_notification_can_be_delete()
+    {
+        $this->singIn();
+
+        $notification = factory(Notification::class)->create();
+
+        $this->assertDatabaseHas('notifications', $notification->toArray());
+
+        $this->delete(
+            route('admin.notification.destroy', ['notification' => $notification]),
+            $notification->toArray()
+        );
+
+        $this->assertDatabaseMissing('notifications', $notification->toArray());
+    }
+
+    /** @test */
+    public function guests_cannot_delete_notifications()
+    {
+        $notification = factory(Notification::class)->create();
+
+        $this->delete(
+            route('admin.notification.destroy', ['notification' => $notification]),
+            $notification->toArray())
+            ->assertRedirect(route('login'));
+
+        $this->assertDatabaseHas('notifications', $notification->toArray());
+    }
 }

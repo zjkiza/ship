@@ -17,4 +17,14 @@ class NotificationCrudRepository
     {
         return Notification::create($data);
     }
+
+    /**
+     * @param Notification $notification
+     *
+     * @throws \Exception
+     */
+    public function destroy(Notification $notification): void
+    {
+        $notification->delete();
+    }
 }

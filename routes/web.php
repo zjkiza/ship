@@ -14,7 +14,10 @@ Route::namespace('Admin')
         Route::get('/user/create', 'AdminController@create')->name('admin.user.create');
         Route::post('/user/store', 'AdminController@store')->name('admin.user.store');
 
-        Route::get('/notification', 'NotificationController@index')->name('admin.notification');
+        Route::get('/notification', 'NotificationController@index')
+            ->name('admin.notification');
+        Route::delete('/notification/{notification}', 'NotificationController@destroy')
+            ->name('admin.notification.destroy');
         Route::get('/notification/create', 'NotificationController@crete')
             ->name('admin.notification.create');
         Route::post('/notification/store', 'NotificationController@store')

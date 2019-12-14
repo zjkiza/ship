@@ -2,6 +2,7 @@
 
 namespace App\Service\Crud;
 
+use App\Models\Notification;
 use App\Notifications\SendNewNotifications;
 use App\Repository\Crud\NotificationCrudRepository;
 use App\Repository\Select\UserSelectRepository;
@@ -56,5 +57,10 @@ class NotificationCrudService
         foreach ($users as $user) {
             $user->notify(new SendNewNotifications($user));
         }
+    }
+
+    public function destroy(Notification $notification): void
+    {
+        $this->notificationCrudRepository->destroy($notification);
     }
 }

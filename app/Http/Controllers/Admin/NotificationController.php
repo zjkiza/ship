@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateNotificationRequest;
+use App\Models\Notification;
 use App\Service\Crud\CrudService;
+use Illuminate\Http\RedirectResponse;
 
 class NotificationController extends Controller
 {
@@ -38,9 +40,16 @@ class NotificationController extends Controller
         ]);
     }
 
-    public function store(CreateNotificationRequest $request)
+    public function store(CreateNotificationRequest $request): RedirectResponse
     {
         $this->crudService->getNotificationCrudService()->store($request->validated());
+
+        return redirect()->route('admin.notification');
+    }
+
+    public function destroy(Notification $notification): RedirectResponse
+    {
+        $this->crudService->getNotificationCrudService()->destroy($notification);
 
         return redirect()->route('admin.notification');
     }
