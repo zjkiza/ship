@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Craw;
 use App\Models\Notification;
 use App\Models\Rank;
-use App\Models\Read;
 use App\Models\Ship;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -54,21 +53,18 @@ class NotificationTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_read_rad_notification(): void
+    public function a_user_can_check_rad_notification_and_read(): void
     {
-        factory(Read::class)->create([
-            'craw_id' => $this->crew->id,
-            'notification_id' => $this->notification->id,
-        ]);
-
-        $this->assertCount(1, $this->notification->reads);
+        $this->post(
+            route('read.create'),
+            [
+                'craw_id' => $this->crew->id,
+                'notification_id' => $this->notification->id,
+            ]
+        );
 
         $this->get(route('notification.read'))
             ->assertStatus(200)
             ->assertSee($this->notification->message);
-
-        $this->get(route('notification.not.read'))
-            ->assertStatus(200)
-            ->assertDontSee($this->notification->message);
     }
 }
