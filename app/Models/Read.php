@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Service\RecordsActivity\RecordsActivity;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -29,6 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Read extends Model
 {
+    use RecordsActivity;
+
     public $table = 'reads';
 
     protected $fillable = [
