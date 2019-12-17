@@ -12,6 +12,7 @@ Route::namespace('Admin')
     ->group(static function () {
         Route::get('/dashboard', 'AdminController@index')->name('admin.index');
         Route::get('/user/create', 'AdminController@create')->name('admin.user.create');
+        Route::get('/user/activity/{user}', 'AdminController@activity')->name('admin.user.activity');
         Route::post('/user/store', 'AdminController@store')->name('admin.user.store');
 
         Route::get('/notification', 'NotificationController@index')

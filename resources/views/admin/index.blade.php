@@ -20,7 +20,11 @@
 
             @foreach($users as $user)
                 <tr>
-                    <td>{{ $user->email }}</td>
+                    <td>
+                        <a href="{{ route('admin.user.activity', ['user' => $user]) }}">
+                            {{ $user->email }}
+                        </a>
+                    </td>
                     <td>{{ $user->role }}</td>
                     <td>{{ $user->sur_name }}</td>
                     <td>{{ $user->rank_name }}</td>

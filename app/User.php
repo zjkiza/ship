@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Activity;
 use App\Models\Craw;
 use App\Notifications\FirstLogin;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -76,6 +77,11 @@ class User extends Authenticatable
     public function craw()
     {
         return $this->hasOne(Craw::class, 'user_id');
+    }
+
+    public function activity()
+    {
+        return $this->hasMany(Activity::class, 'user_id');
     }
 
     public function sendPasswordResetNotification($token): void

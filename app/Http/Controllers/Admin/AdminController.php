@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreteUserRequest;
 use App\Service\Crud\CrudService;
 use App\Service\Crud\UserCrawStoreService;
+use App\Service\Select\UserActivityService;
 use App\Service\Select\UserSelectService;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -47,5 +49,15 @@ class AdminController extends Controller
         $userCrawStoreService->store($request->validated());
 
         return redirect()->route('admin.index');
+    }
+
+    public function activity(
+        User $user,
+        UserActivityService $userActivityRepository
+    ) {
+        return view('user.activity', [
+            'user' => $user,
+            'activities' => $userActivityRepository->getActivities($user),
+        ]);
     }
 }
