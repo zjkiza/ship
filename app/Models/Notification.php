@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \App\Models\Ship                $ship
  * @property \App\Models\Rank                $rank
- *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Notification newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Notification newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Notification query()
@@ -27,6 +26,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Notification whereShipId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Notification whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Activity[] $activity
+ * @property-read int|null $activity_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Read[] $reads
+ * @property-read int|null $reads_count
  */
 class Notification extends Model
 {

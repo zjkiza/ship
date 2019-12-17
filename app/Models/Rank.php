@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null                                                            $craws_count
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Notification[] $notifications
  * @property int|null                                                            $notifications_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rank newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rank newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rank query()

@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \App\User                       $user
  * @property Ship                            $ship
  * @property Rank                            $rank
- *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Craw newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Craw newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Craw query()

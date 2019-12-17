@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \App\Models\Craw                $craw
  * @property \App\Models\Notification        $notification
- *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Read newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Read newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Read query()
@@ -27,6 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Read whereNotificationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Read whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Activity[] $activity
+ * @property-read int|null $activity_count
  */
 class Read extends Model
 {
